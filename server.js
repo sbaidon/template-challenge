@@ -9,7 +9,7 @@ var cors = require('cors');
 
 var backend = express();
 
-var { blogs } = require('./data')
+var blogs = require('./data').blogs
 
 var corsOptions = {
   origin: 'https://sbaidon.github.io/template-challenge/',
