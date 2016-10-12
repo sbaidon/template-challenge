@@ -50,7 +50,7 @@ backend.get('/blog' , cors(corsOptions), (req, res) => {
 });
 
 backend.post('/blog', cors(corsOptions),  (req, res) => {
-  const { blogs } = req;
+
   
   
 });
