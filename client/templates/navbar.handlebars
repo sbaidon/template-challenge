@@ -1,0 +1,19 @@
+  <ul>
+    <li class="logo">
+    {{#if navbar}}
+      <i class="fa fa-pagelines fa-rotate-180"></i>
+      Gi. La.
+    {{/if}}
+    {{#if footer}}
+      2016 website.com
+    {{/if}}
+    </li>
+    {{#items}}{{> menu }}{{/items}}
+
+    {{#if navbar}}
+    <li>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      </li>
+    {{/if}}
+
+  </ul>
