@@ -11,17 +11,13 @@ import specialSeasons from './templates/specials-season.handlebars';
 import { getBlogPosts } from './api';
 
 //Data
-import { navbarItems, chef, cookingItems, seasonItems, restaurantItems } from './items'
+import { navbarItems, chef, cookingItems, seasonItems, restaurantItems, lastPost } from './items'
 
 const root = document.getElementById('root');
 
 getBlogPosts()
   .then((posts) => {
-    posts.push({
-      image: mediterranean,
-      title: 'A New Favorite Take on an Old Mediterranean Grain',
-      'description': `Packed with complex carbohydrates and fiber, delicious and hearty whole grains play an important part in the Mediterranean diet. Look beyond rice and pasta, because it's worth getting to know farro, amaranth, millet, freekah and wheat berries...`
-    });
+    posts.push(lastPost);
     const guestBlogging = document.getElementById('blog');
     guestBlogging.innerHTML = specialSeasons({items: posts, blog: true});
   });
@@ -48,7 +44,7 @@ threeItems.className = 'three-items-section'
 special.innerHTML = specialSeasons({items: seasonItems, specials: true});
 special.className = 'special-seasons';
 
-threeItemsRight.innerHTML = threeItemSection({items: restaurants, right: true});
+threeItemsRight.innerHTML = threeItemSection({items: restaurantItems, right: true});
 threeItemsRight.className = 'three-items-section right'
 
 guestBlogging.innerHTML = specialSeasons({items: [], blog: true});

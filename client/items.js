@@ -91,3 +91,9 @@ export const restaurants = [
     description: '11 Mohegan Sun Boulevard \n Uncasvile, \n CT 06382 756 862 3529 \n tokiosun.com'
   }
 ];
+
+export const lastPost = {
+      image: mediterranean,
+      title: 'A New Favorite Take on an Old Mediterranean Grain',
+      'description': `Packed with complex carbohydrates and fiber, delicious and hearty whole grains play an important part in the Mediterranean diet. Look beyond rice and pasta, because it's worth getting to know farro, amaranth, millet, freekah and wheat berries...`
+    }
