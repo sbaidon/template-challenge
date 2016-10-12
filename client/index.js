@@ -11,7 +11,7 @@ import specialSeasons from './templates/specials-season.handlebars';
 import { getBlogPosts } from './api';
 
 //Data
-import { navbarItems, chef, cookingItems, seasonItems, restaurantItems, lastPost } from './items'
+import { navbarItems, chef, cookingItems, seasonItems, restaurantItems, lastPost, footerItems } from './items'
 
 const root = document.getElementById('root');
 
