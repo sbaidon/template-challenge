@@ -42,6 +42,4 @@ for(var item in templates) {
   }
 
   root.appendChild(section);
-   // propertyName is what you want
-   // you can get the value like this: myObject[propertyName]
 }
