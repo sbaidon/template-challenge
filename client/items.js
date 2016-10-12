@@ -41,7 +41,7 @@ export const chef = {
     name: 'Gila De Lauren',
 };
 
-export const items = [
+export const cookingItems = [
   {
     image: deviledEggs,
     description: `Bar Americain's Pickled Shrimp Deviled Eggs with Cornichon Remoulade`
@@ -74,7 +74,7 @@ export const seasonItems = [
   }
 ];
 
-export const restaurants = [
+export const restaurantItems = [
   {
     image: deliBar,
     title: 'DELI BAR',
