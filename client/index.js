@@ -47,11 +47,11 @@ special.className = 'special-seasons';
 threeItemsRight.innerHTML = threeItemSection({items: restaurantItems, right: true});
 threeItemsRight.className = 'three-items-section right'
 
-guestBlogging.innerHTML = specialSeasons({items: [], blog: true});
+guestBlogging.innerHTML = specialSeasons({items: []});
 guestBlogging.className = 'special-seasons blog';
 guestBlogging.id = 'blog';
 
-footer.innerHTML = navbar({items: footerItems, footer: true});
+footer.innerHTML = navbar({items: footerItems});
 footer.className = 'navbar-container footer'
 
 root.appendChild(nav);
