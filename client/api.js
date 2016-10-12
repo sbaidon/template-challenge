@@ -1,5 +1,5 @@
 export function getBlogPosts() {
-  return fetch('http://localhost:8080/blog')
+  return fetch('https://template-challenge-backend.herokuapp.com/blog')
   .then((response) => (response.json()))
   .then((json) => (json));
 }
