@@ -29,7 +29,7 @@ const templates = {
   "section__threeItems": threeItemSection({items: cookingItems, left: true}),
   "section__specials": specialSeasons({items: seasonItems, specials: true}),
   "section__threeItems--right": threeItemSection({items: restaurantItems, right: true}),
-  "section__threeItems--blog": specialSeasons({items: []}),
+  "section__specials--blog": specialSeasons({items: []}),
   "navbar--bottom": navbar({items: footerItems})
 };
 
