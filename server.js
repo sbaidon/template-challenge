@@ -2,9 +2,9 @@ var path = require('path');
 var express = require('express');
 var cors = require('cors');
 
-var webpack = require('webpack');
-var config = require('./webpack.config');
-var compiler = webpack(config);
+//var webpack = require('webpack');
+//var config = require('./webpack.config');
+//var compiler = webpack(config);
 var app = express();
 
 var backend = express();
@@ -12,10 +12,9 @@ var backend = express();
 var blogs = require('./data').blogs
 
 var corsOptions = {
-  origin: 'https://sbaidon.github.io',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: 'http://localhost:8081',
+  optionsSuccessStatus: 200
 };
-
 
 /*
 app.use(require('webpack-dev-middleware')(compiler, {
@@ -23,9 +22,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 */
-
-
-
 //app.use(require('webpack-hot-middleware')(compiler));
 
 app.use('/template-challenge/dist/', express.static(__dirname + '/dist'));
@@ -45,11 +41,6 @@ app.listen(process.env.PORT || 8081 , (err) => {
 
 backend.get('/blog' , cors(corsOptions), (req, res) => {
   return res.json(blogs);
-});
-
-backend.post('/blog', cors(corsOptions),  (req, res) => {
-
-
 });
 
 backend.listen(process.env.PORT || 8080, (err) => {
