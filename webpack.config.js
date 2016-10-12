@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/template-challenge/dist/'
   },
   resolve: {
       fallback: path.join(__dirname, "client", "templates", "helpers")
