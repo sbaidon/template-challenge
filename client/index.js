@@ -20,6 +20,9 @@ import newYorkBar from './images/img-restaurant-2.png';
 import tokioBar from './images/img-restaurant-3.png';
 import mediterranean from './images/img-eggplant-manchego-salad-cover.png';
 
+//Api
+import { getBlogPosts } from './api';
+
 const root = document.getElementById('root');
 
 const navbarItems = [
@@ -100,26 +103,20 @@ const restaurants = [
     title: 'BAR TOKIO SUN',
     description: '11 Mohegan Sun Boulevard \n Uncasvile, \n CT 06382 756 862 3529 \n tokiosun.com'
   }
-]
-
-const blogItems = [
-  {
-    title: 'Rhubarb: The Vegetable That Acts Like a fruit',
-    description: `May is all about vegetables on bobbyflay.com and one of the most popular springtime vegetables ir rhubarb. That's right, I said vegetable. Did you know that rhubarb is actually a vegetable, not a fruit? \n \n While rhubarb is typically treated like a fruit and most often shows up in desserts in this country, it is also very good in savory dishes too and when used in glazed and chutneys pairs really well with pork, lamb and chicken. But, since I could live on pastries (and often do) I love using rhubarb in a variety of desserts.`
-  },
-  {
-    title: 'The Perfect Fruitcake',
-    description: `The poor, maligned fruit cake... probably one of the most hated cakes in the existence of baking. Is it any wonder? Would you want an incredibly dense, overly sweet, horribly boozy "cacke" chock-full of fluorescent-colored candied fruit pieces?` 
-  },
-  {
-    title: `A New Favorite Take on an Old Mediterranean Grain`,
-    image: mediterranean,
-    description: `Holiday season is well underway, and you know what that means: people are BUSY! With that in mind, I developed a festive recipe that's quick enough to serve on a weeknight (with some make-aheads), and beautiful and impressive enough to serve as the centerpiece for a holiday meal`
-  }
 ];
 
-//const blogItems = fetch('localhost:8080/blog');
+getBlogPosts()
+  .then((posts) => {
+    posts.push({
+      image: mediterranean,
+      title: 'A New Favorite Take on an Old Mediterranean Grain',
+      'description': `Packed with complex carbohydrates and fiber, delicious and hearty whole grains play an important part in the Mediterranean diet. Look beyond rice and pasta, because it's worth getting to know farro, amaranth, millet, freekah and wheat berries...`
+    });
+    const guestBlogging = document.getElementById('blog');
+    guestBlogging.innerHTML = specialSeasons({items: posts, blog: true});
+  });
 
+//const blogItems = fetch('localhost:8080/blog');
 
 const nav = document.createElement('div');
 const mainSection = document.createElement('div');
@@ -144,8 +141,9 @@ special.className = 'special-seasons';
 threeItemsRight.innerHTML = threeItemSection({items: restaurants, right: true});
 threeItemsRight.className = 'three-items-section right'
 
-guestBlogging.innerHTML = specialSeasons({items: blogItems, blog: true});
+guestBlogging.innerHTML = specialSeasons({items: [], blog: true});
 guestBlogging.className = 'special-seasons blog';
+guestBlogging.id = 'blog';
 
 footer.innerHTML = navbar({items: footerItems, footer: true});
 footer.className = 'navbar-container footer'
@@ -157,4 +155,8 @@ root.appendChild(special);
 root.appendChild(threeItemsRight);
 root.appendChild(guestBlogging);
 root.appendChild(footer);
+
+
+
+
 

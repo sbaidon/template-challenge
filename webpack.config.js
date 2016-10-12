@@ -1,26 +1,31 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   devtool: 'source-map',
   entry: [
+    'webpack-hot-middleware/client',
     './client/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/template-challenge/dist/'
+    publicPath: '/static/'
   },
   resolve: {
       fallback: path.join(__dirname, "client", "templates", "helpers")
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
         compressor: {
             warnings: false
         }
-    })
+    }),
+    new ExtractTextPlugin("style.min.css")
   ],
   module: {
     loaders: [
@@ -34,7 +39,7 @@ module.exports = {
     { 
       test: /\.styl$/, 
       include: path.join(__dirname, 'client'),
-      loader: 'style-loader!css-loader!stylus-loader'
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?minimize!stylus-loader')
     },
     // Images
     { test: /\.(png|jpg|svg)$/, 
