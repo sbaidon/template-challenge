@@ -37,7 +37,7 @@ for(var item in templates) {
   const section = document.createElement('section');
   section.innerHTML = templates[item]
   section.className = item;
-  if (item === 'section__threeItems--blog') {
+  if (item === 'section__specials--blog') {
     section.id = 'blog';
   }
 
