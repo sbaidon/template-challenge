@@ -18,8 +18,8 @@ body
   display flex
   flex-flow row wrap
   margin 0
-  
-.navbar-container
+      
+.navbar
   flex 0 1 100%
   background-color green
   ul
@@ -40,7 +40,7 @@ body
     .menu
       flex 0 1 5%
 
-.section-container
+.section__chef
   flex 0 1 100%
   display flex
   flex-flow row wrap
@@ -61,7 +61,7 @@ body
         color black
 
             
-.three-items-section
+.section__threeItems
   display flex
   flex-flow row wrap
   flex 0 1 100%
@@ -90,7 +90,8 @@ body
         max-width 260px
         font-size 1em
 
-.right
+.section__threeItems--right
+  @extend .section__threeItems
   .big
     background-color #A3B728
     order 4
@@ -113,7 +114,7 @@ body
         line-height 1.5
         background-color: rgba(0, 0, 0, 0.7);
 
-.special-seasons
+.section__specials
   display flex
   flex-flow row wrap
   justify-content space-around
@@ -139,7 +140,8 @@ body
       p
         font-size 1em
 
-.blog
+.section__specials--blog
+  @extend .section__specials
   .items
     .container
       width 400px
@@ -149,7 +151,6 @@ body
         padding 1em 1em
         font-size 1em
         color white
-
       p
         padding .5em 1em
     &:nth-child(odd)
@@ -172,7 +173,8 @@ body
         p
           padding 0 0
 
-.footer
+.navbar--bottom
+  @extend .navbar
   margin-top 2em
   background-color blue
   ul
@@ -184,14 +186,14 @@ body
 
 
 @media screen and (max-width: 1100px)
-  .three-items-section
+  .section__threeItems, .section__threeItems--right
     .big
       flex 0 1 100%
       i
         margin-top .5em
     .items
       flex 1
-  .navbar-container
+  .navbar
     ul
       .logo
         flex 0 1 20%
@@ -199,7 +201,7 @@ body
         flex 0 1 20%
 
 @media screen and (max-width: 800px)
-  .three-items-section
+  .section__threeItems, .section__threeItems--right
     .big
       flex 0 1 100%
       i
@@ -208,7 +210,7 @@ body
       flex 0 1 100%
 
 @media screen and (max-width: 600px) 
-  .navbar-container
+  .navbar
     ul
       justify-content center
       .logo
@@ -220,7 +222,7 @@ body
         text-align center
 
 @media screen and (min-resolution: 300dpi)
-  .special-seasons
+  .section__specials
     .heading
       flex 0 1 100%
       h1
@@ -233,14 +235,14 @@ body
         align-items center
         width 100%
 
-  .section-container
+  .section__chef
     .panel
       flex 0 1 100%
       .about
         max-width 800px
         p
           font-size 2em
-  .navbar-container
+  .navbar
     ul
       justify-content center
       li
@@ -251,7 +253,7 @@ body
         font-size 2em
       .menu
         text-align center
-  .blog
+  .section__specials--blog
     .items
       flex 0 1 100%
       &:nth-child(4)

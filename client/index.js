@@ -23,46 +23,25 @@ getBlogPosts()
   });
 
 //const blogItems = fetch('localhost:8080/blog');
+const templates = {
+  "navbar": navbar({items: navbarItems, navbar: true}),
+  "section__chef" : section({chef}),
+  "section__threeItems": threeItemSection({items: cookingItems, left: true}),
+  "section__specials": specialSeasons({items: seasonItems, specials: true}),
+  "section__threeItems--right": threeItemSection({items: restaurantItems, right: true}),
+  "section__threeItems--blog": specialSeasons({items: []}),
+  "navbar--bottom": navbar({items: footerItems})
+};
 
-const nav = document.createElement('div');
-const mainSection = document.createElement('div');
-const threeItems = document.createElement('div');
-const special = document.createElement('div');
-const threeItemsRight = document.createElement('div');
-const guestBlogging = document.createElement('div');
-const footer = document.createElement('div');
+for(var item in templates) {
+  const section = document.createElement('section');
+  section.innerHTML = templates[item]
+  section.className = item;
+  if (item === 'section__threeItems--blog') {
+    section.id = 'blog';
+  }
 
-nav.innerHTML = navbar({items: navbarItems, navbar: true});
-nav.className = 'navbar-container';
-
-mainSection.innerHTML = section({chef});
-mainSection.className = 'section-container';
-
-threeItems.innerHTML = threeItemSection({items: cookingItems, left: true});
-threeItems.className = 'three-items-section'
-
-special.innerHTML = specialSeasons({items: seasonItems, specials: true});
-special.className = 'special-seasons';
-
-threeItemsRight.innerHTML = threeItemSection({items: restaurantItems, right: true});
-threeItemsRight.className = 'three-items-section right'
-
-guestBlogging.innerHTML = specialSeasons({items: []});
-guestBlogging.className = 'special-seasons blog';
-guestBlogging.id = 'blog';
-
-footer.innerHTML = navbar({items: footerItems});
-footer.className = 'navbar-container footer'
-
-root.appendChild(nav);
-root.appendChild(mainSection);
-root.appendChild(threeItems);
-root.appendChild(special);
-root.appendChild(threeItemsRight);
-root.appendChild(guestBlogging);
-root.appendChild(footer);
-
-
-
-
-
+  root.appendChild(section);
+   // propertyName is what you want
+   // you can get the value like this: myObject[propertyName]
+}
