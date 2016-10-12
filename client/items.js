@@ -11,6 +11,7 @@ import newYorkBar from './images/img-restaurant-2.png';
 import tokioBar from './images/img-restaurant-3.png';
 import mediterranean from './images/img-eggplant-manchego-salad-cover.png';
 
+import 'whatwg-fetch';
 
 export const navbarItems = [
   {
