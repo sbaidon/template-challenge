@@ -14,7 +14,10 @@ npm install
 
 npm start
 
+```
 to make a new build:
+
+```javascript
 
 npm build
 
